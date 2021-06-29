@@ -79,3 +79,35 @@ def test_no_winner():
         )
         is None
     )
+
+
+def test_right_diagonal_going_down():
+    assert (
+        find_winner(
+            [
+                [None, "R", None, None, "L", "L", "L"],
+                [None, "L", "R", None, None, "L", None],
+                [None, "L", None, "R", "L", None, None],
+                [None, None, "R", None, None, None, None],
+                [None, "R", None, None, None, None, None],
+                ["R", None, None, None, None, None, None],
+            ]
+        )
+        == "R"
+    )
+
+
+def test_left_diagonal_going_down():
+    assert (
+        find_winner(
+            [
+                [None, "R", None, None, "L", "L", "L"],
+                [None, "L", "R", None, None, "L", None],
+                [None, "L", None, "L", "L", None, None],
+                [None, None, None, None, "L", None, None],
+                [None, None, None, None, None, "L", None],
+                [None, None, None, None, None, None, "L"],
+            ]
+        )
+        == "L"
+    )
